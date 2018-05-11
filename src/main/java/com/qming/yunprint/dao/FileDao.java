@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface FileDao {
-    String TABLE_NAME = "FILE";
+    String TABLE_NAME = "file";
     String INSERT_FIELDS = "owner_id,file_uuid,name,type,upload_time,pages,documentId,coverUrl,md5 ";
     String SELECT_FIELDS = "id," + INSERT_FIELDS;
 

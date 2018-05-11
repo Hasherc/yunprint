@@ -1,6 +1,8 @@
 package com.qming.yunprint.util;
 
 import org.apache.commons.io.FileExistsException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,9 +20,11 @@ import java.util.Base64;
  */
 @Component
 public class FUtil {
+    Logger logger = LoggerFactory.getLogger(PricingUtil.class);
+
     //@Value("${print.file.folder}")
-//    public static String fileFolderPath= "/home/cloud_print/";
-    public static String fileFolderPath= "E://yun_print//";
+    public static String fileFolderPath= "/home/cloud_print/";
+//    public static String fileFolderPath= "E://yun_print//";
 
     public  String downToDisk(String fileUuid, MultipartFile file) throws FileExistsException {
         createRootDir();

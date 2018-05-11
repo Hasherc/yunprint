@@ -1,7 +1,7 @@
 
 <#include "header.ftl">
 <div class="container">
-    <div class="jumbotron" id="jumb">
+    <div class="jumbotron" id="jumb" style="margin-top: 100px">
         <h2 class="text-gradient">请选择要打印的文件类型</h2>
         <div class="select-div" id="typeSelectFile" data-toggle="modal" href="#documentModal">
             <p class="selecttext">文档</p>

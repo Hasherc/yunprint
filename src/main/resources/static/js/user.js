@@ -94,7 +94,22 @@ function check_tel(model) {
     return regx.test(model);
 
 }
+function addBalance() {
 
+    var model = {
+        money: $("#money").val()
+    };
+    $.ajax({
+        type: "post",
+        url: "/addBalance",
+        data: JSON.stringify(model),
+        dataType: "json",
+        contentType: "text/plain",
+        success: function (result) {
+            $("#balance").text(result.balance);
+        }
+    });
+}
 function check_password(model) {
     var b = /^[a-zA-Z]\w{5,17}$/;
     if (model.length < 6 || model.length > 18) {

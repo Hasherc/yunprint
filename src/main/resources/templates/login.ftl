@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
-        <div class="well col-md-6" id="loginRegisterDiv">
+        <div class="well col-md-6" id="loginRegisterDiv" style="margin-top: 100px">
             <br>
             <div id="notice" class="alert alert-warning" style="display: none"></div>
             <form id="login" class="form-horizontal" role="form">

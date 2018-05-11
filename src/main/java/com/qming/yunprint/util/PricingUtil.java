@@ -1,5 +1,8 @@
 package com.qming.yunprint.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.swing.text.NumberFormatter;
 import java.text.DecimalFormat;
 
@@ -10,6 +13,7 @@ import java.text.DecimalFormat;
  * @Date: 2018-04-27-20:38
  */
 public class PricingUtil {
+	Logger logger = LoggerFactory.getLogger(PricingUtil.class);
 	public static final int UNPAID = 0;
 	public static final int PAID = 1;
 	public static final int UN_PRINT = 2;

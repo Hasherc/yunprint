@@ -26,7 +26,7 @@ public class YunPrintWebConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(passInterceptor);
-        registry.addInterceptor(loginRequireInterceptor).addPathPatterns("/file/*","/order/*");
+        registry.addInterceptor(loginRequireInterceptor).addPathPatterns("/*").excludePathPatterns("/toLogin", "/toRegister","/loginByPhoneNum","/register");
         registry.addInterceptor(fileListInterceptor).addPathPatterns("/*");
 
     }

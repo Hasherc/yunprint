@@ -49,5 +49,11 @@ public class UserService {
         user.setStatus(0);
         return user;
     }
+    public double addBalance(int id, double balance){
+        User user = userDao.getUserById(id);
+        user.setBalance(user.getBalance() + balance);
+        userDao.updateBalance(id, user.getBalance());
+        return user.getBalance();
+    }
 
 }

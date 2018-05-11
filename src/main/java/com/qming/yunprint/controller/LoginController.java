@@ -2,6 +2,7 @@ package com.qming.yunprint.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.qming.yunprint.model.User;
+import com.qming.yunprint.model.UserHolder;
 import com.qming.yunprint.service.OrderService;
 import com.qming.yunprint.service.TicketService;
 import com.qming.yunprint.service.UserService;
@@ -34,7 +35,8 @@ public class LoginController {
 
     @Autowired
     OrderService orderService;
-
+    @Autowired
+    UserHolder holder;
     @ResponseBody
     @RequestMapping(path = "/register", method = RequestMethod.POST)
     public String register(@RequestBody String json, HttpServletResponse response){
@@ -111,6 +113,19 @@ public class LoginController {
             ticketService.setTicketExpired(ticket);
         }
         return "main";
+    }
+    @RequestMapping(value = "/userInfo")
+    public String getUserInfo(){
+        return "wallet";
+    }
+    @ResponseBody
+    @RequestMapping(value = "/addBalance")
+    public String addBalance(@RequestBody() String money, @CookieValue("ticket") String ticket){
+        User user = holder.get();
+        double balance= userService.addBalance(user.getId(), JSONObject.parseObject(money).getDouble("money"));
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("balance", balance);
+        return jsonObject.toJSONString();
     }
 
 }

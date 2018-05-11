@@ -33,7 +33,7 @@
             <ul class="nav navbar-nav">
                 <li><a class="myNav" href="/file/printSelect">打印</a></li>
                 <li><a class="myNav" href="/getOrderList">订单信息</a></li>
-                <li><a class="myNav" href="#">关于我们</a></li>
+                <li><a class="myNav" href="/userInfo">个人信息</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <#if user??>

@@ -7,6 +7,8 @@ import com.baidubce.services.doc.model.CreateDocumentResponse;
 import com.baidubce.services.doc.model.GetDocumentResponse;
 import com.baidubce.services.doc.model.ReadDocumentResponse;
 import com.qming.yunprint.model.FileEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +23,8 @@ import java.io.File;
 @Component
 @Scope("prototype")
 public class DocUtil {
+	Logger logger = LoggerFactory.getLogger(PricingUtil.class);
+
 	private static final String ACCESS_KEY_ID = "dbbb0f3e86e64d7687798fb8ecba8343";
 	private static final String SECRET_ACCESS_KEY = "";
 	private static DocClient client;
@@ -39,8 +43,8 @@ public class DocUtil {
 	 * @param format 文档格式。有效值：doc, docx, ppt, pptx, xls, xlsx, vsd, pot, pps, rtf, wps, et, dps, pdf, txt, epub
 	 */
 	public  String createDocument(File file, String title, String format) {
-		System.out.println(title);
-		System.out.println(format);
+		logger.debug(title);
+		logger.debug(format);
 		CreateDocumentResponse resp = client.createDocument(file, title, format);
 		return resp.getDocumentId();
 	}
